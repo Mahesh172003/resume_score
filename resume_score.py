@@ -3,17 +3,9 @@ import PyPDF2
 from nltk.tokenize import word_tokenize
 import nltk
 import re
-import os
 
-# Ensure NLTK punkt_tab is downloaded in the cloud environment
-try:
-    # Attempt to load punkt_tab to check if it exists
-    nltk.data.find('tokenizers/punkt_tab')
-except LookupError:
-    # If not found, download it
-    nltk.download('punkt_tab', download_dir='/home/adminuser/venv/nltk_data')
-    # Update NLTK data path to include the download directory
-    nltk.data.path.append('/home/adminuser/venv/nltk_data')
+# Download NLTK data (run once)
+nltk.download('punkt')
 
 # Function to extract text from PDF resume
 def extract_resume_text(pdf_file):
